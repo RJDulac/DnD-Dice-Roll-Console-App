@@ -12,9 +12,9 @@ namespace DnDDiceRollingApp
             {
                 System.Console.WriteLine("DnD Dice Rolling App");
 
-                System.Console.WriteLine("Enter D20, D12, D10, D8, D6, or D4 to roll your die!");
+                System.Console.WriteLine("Enter D20, D12, D10, D8, D6, or D4 to roll your die! Enter H, GH, SH, or SUPH for heal rolls.");
                 string inputDice = Console.ReadLine().ToUpper();
-                string selectedDice = SelectDice(inputDice);
+                string selectedDice = SelectDice.DiceResult(inputDice);
                 System.Console.WriteLine(selectedDice);
 
 
@@ -28,22 +28,6 @@ namespace DnDDiceRollingApp
 
             }
             while (isRunning);
-        }
-        public static string SelectDice(string dice) => dice switch
-        {
-            "D20" => $"20 sided dice rolling..\n You rolled a {RandomDiceRoll(21)}",
-            "D12" => $"12 sided dice rolling..\n You rolled a {RandomDiceRoll(13)}",
-            "D10" => $"10 sided dice rolling..\n You rolled a {RandomDiceRoll(11)}",
-            "D8" => $"8 sided dice rolling..\n You rolled a {RandomDiceRoll(9)}",
-            "D6" => $"6 sided dice rolling..\n You rolled a {RandomDiceRoll(7)}",
-            "D4" => $"4 sided dice rolling..\n You rolled a {RandomDiceRoll(5)}",
-            _ => "Invalid input"
-
-        };
-        public static int RandomDiceRoll(int dice)
-        {
-            Random rnd = new Random();
-            return rnd.Next(1, dice);
         }
     }
 }
