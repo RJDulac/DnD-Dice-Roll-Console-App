@@ -29,10 +29,6 @@ namespace DnDDiceRollingApp
             _ => "Invalid input"
 
         };
-        private static int RandomDiceRoll(int dice)
-        {
-            Random rnd = new Random();
-            return rnd.Next(1, dice);
-        }
+        private static int RandomDiceRoll(int dice) => new Random().Next(1, dice);
     }
 }
